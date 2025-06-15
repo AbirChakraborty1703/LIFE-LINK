@@ -7,4 +7,4 @@ ensures mobile responsiveness, fast performance, and encrypted
 data, improving patient care and digital healthcare efficiency.
 
 
-Clone the repo and type npm install to install all dependencies included in the three main folders!!!!!!!!
+Clone the repo and type npm install to install all dependencies included in the three main folders!!!!!
