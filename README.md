@@ -10,20 +10,6 @@
 </p>
 
 ---
-
-## 📑 Table of Contents
-
-- [🔍 About](#-about)  
-- [🛠️ Tech Stack](#️-tech-stack)  
-- [📂 Repo Structure](#-repo-structure)  
-- [🚀 Getting Started](#-getting-started)  
-  - [Prerequisites](#prerequisites)  
-  - [Installation](#installation)  
-  - [Running Locally](#running-locally)  
-- [🖥️ Usage](#️-usage)  
-- [🤝 Contributing](#-contributing)  
- 
-
 ---
 
 ## 🔍 About
