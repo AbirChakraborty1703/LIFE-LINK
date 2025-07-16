@@ -58,7 +58,7 @@ const appointmentCancel = async (req, res) => {
             return res.json({ success: true, message: 'Appointment Cancelled' })
         }
 
-        res.json({ success: false, message: 'Appointment Cancelled' })
+        res.json({ success: false, message: 'Failed to cancel appointment' })
 
     } catch (error) {
         console.log(error)
@@ -79,7 +79,7 @@ const appointmentComplete = async (req, res) => {
             return res.json({ success: true, message: 'Appointment Completed' })
         }
 
-        res.json({ success: false, message: 'Appointment Cancelled' })
+        res.json({ success: false, message: 'Failed to complete appointment' })
 
     } catch (error) {
         console.log(error)

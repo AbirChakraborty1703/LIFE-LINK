@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
 import { assets } from '../assets/assets'
@@ -9,7 +9,7 @@ import axios from 'axios'
 const Appointment = () => {
 
   const {docId} = useParams()
-  const {doctors, currencySymbol, backendUrl, token, getDoctorsData} = useContext(AppContext)
+  const {doctors, backendUrl, token, getDoctorsData} = useContext(AppContext)
   const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
 
   const navigate = useNavigate()
@@ -55,9 +55,9 @@ const Appointment = () => {
         let year = currentDate.getFullYear()
 
         const slotDate = day+"_"+month+"_"+year
-        const slotTime =formattedTime
+        const slotTime = formattedTime
 
-        const isSlotAvailable = docInfo.slots_booked[slotDate] && docInfo.slots_booked[slotTime] ? false :true
+        const isSlotAvailable = docInfo.slots_booked[slotDate] && docInfo.slots_booked[slotDate].includes(slotTime) ? false : true
 
         if(isSlotAvailable){
           timeSlots.push({
@@ -112,9 +112,9 @@ const Appointment = () => {
     getAvailableSlots()
   }, [docInfo])
 
-  useEffect(() => {
-    console.log(docSlots);
-  }, [docSlots])
+  // useEffect(() => {
+  //   console.log(docSlots);
+  // }, [docSlots])
 
   return docInfo &&(
     <div>

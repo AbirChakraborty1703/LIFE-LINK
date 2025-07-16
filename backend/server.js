@@ -12,15 +12,27 @@ import adminRouter from "./routes/adminRoute.js";
 
 const app = express();
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "your-gemini-api-key");
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 app.use(express.json());
+
+// Add request logging middleware for debugging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} - Origin: ${req.get('Origin')}`);
+  next();
+});
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'], // both origins
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://your-frontend-domain.com', 'https://your-admin-domain.com'] 
+    : true, // Allow all origins in development
   credentials: true,  // allow cookies or credentials if needed
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'token'],
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }));
 app.use(session({
-  secret: "your_secret_key", // use an actual secret
+  secret: process.env.SESSION_SECRET || "fallback_secret_key_for_dev", // use environment variable
   resave: false,
   saveUninitialized: true,
   cookie: {

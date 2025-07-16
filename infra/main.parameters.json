@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentName": {
+      "value": "${AZURE_ENV_NAME}"
+    },
+    "location": {
+      "value": "${AZURE_LOCATION}"
+    },
+    "principalId": {
+      "value": "${AZURE_PRINCIPAL_ID}"
+    },
+    "jwtSecret": {
+      "value": "${JWT_SECRET}"
+    },
+    "geminiApiKey": {
+      "value": "${GEMINI_API_KEY}"
+    },
+    "sessionSecret": {
+      "value": "${SESSION_SECRET}"
+    },
+    "stripeSecretKey": {
+      "value": "${STRIPE_SECRET_KEY}"
+    },
+    "cloudinaryCloudName": {
+      "value": "${CLOUDINARY_CLOUD_NAME}"
+    },
+    "cloudinaryApiKey": {
+      "value": "${CLOUDINARY_API_KEY}"
+    },
+    "cloudinaryApiSecret": {
+      "value": "${CLOUDINARY_API_SECRET}"
+    }
+  }
+}
